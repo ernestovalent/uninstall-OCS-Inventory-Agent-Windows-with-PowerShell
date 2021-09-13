@@ -69,7 +69,7 @@ if ($OSVersion -gt 6000) {
                     Write-Output "----> OCS Service is: $($OCSService.Status)"
                 }
                 #Uninstall OCS and erase config
-                $OCSInstalled = Get-ChildItem -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall", "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall" | Get-ItemProperty |  Where-Object { $_.DisplayName -match "OCS" } | Select-Object -Property DisplayName, UninstallString
+                $OCSInstalled = Get-ChildItem -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | Get-ItemProperty |  Where-Object { $_.DisplayName -match "OCS" } | Select-Object -Property DisplayName, UninstallString
                 foreach ($program in $OCSInstalled) {
                     if ($program.UninstallString) {
                         $uninstall = $program.UninstallString
