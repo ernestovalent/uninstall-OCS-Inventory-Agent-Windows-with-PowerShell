@@ -15,5 +15,5 @@ $settings = @{
 }
 
 $diagnostics = Invoke-ScriptAnalyzer -Path .\uninstallOcs.ps1 -Settings $settings
-$diagnostics
+$diagnostics | Format-List
 #$diagnostics[0].SuggestedCorrections
